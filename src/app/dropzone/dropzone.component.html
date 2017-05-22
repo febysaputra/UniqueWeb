@@ -1,0 +1,11 @@
+<div class="dropzone-container" id="upload-widget">
+  <div id="dropzone-drop-area" class="dropzone-drop-area"><div *ngIf="!fileDropped" style="margin: auto; color: #c1c1c1"><h4>Masukkan gambar disini <i class="fa fa-upload" aria-hidden="true" style="margin-left: 5px"></i></h4>
+  </div>
+    <div *ngIf="!fileDropped" class="centered noselect clickthrough">
+      	<ng-content></ng-content>
+    </div>
+  </div>
+</div>
+
+<button md-raised-button style="float: right;" *ngIf="fileDropped" (click)="deleteAll()">
+  <i class="fa fa-upload fa-lg"></i>

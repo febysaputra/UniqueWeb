@@ -1,0 +1,111 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+
+        <div class="row row1">
+          <div class="container">
+            <p style="color: white; margin-top: 5px">Situs Lelang Paling Dabes</p>
+          </div>
+        </div>
+
+<div id="flipkart-navbar">
+
+    <div class="container">
+        <div class="row row2">
+          <div class="col-md-2" style="margin-right: 45px">
+              <h2 style="margin:0px;"><span class="smallnav menu" (click)="openNav()">☰ Brand</span></h2>
+              <a routerLink=""><h1 style="margin-top:0px; margin-top: 15px;color:white"><span class="largenav"><font face="ravie">Unique</font></span></h1></a>
+          </div>
+          <div class="col-md-1 ">
+            <a href="javascript://" [popover]="myPopover"><h3 style="margin-top: 25px; color:white">Kategori</h3>
+            <popover-content #myPopover placement="bottom" [closeOnClickOutside]="true">
+                        <p style="color: blue">Action</p>
+                        <p style="color: blue">Another action</p>
+                        <p style="color: blue">Something else here</p>
+                        <p style="color: blue">Separated link</p>
+                        <p style="color: blue">One more separated link</p>
+            </popover-content></a>
+
+          </div>
+
+          <div class="col-md-4 col-sm-4 col-xs-4">
+          <form class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                    <input type="text" class="form-control" style="width:146%; margin-top: 10px" placeholder="Search">
+                  </div>
+                  <button type="submit" class="btn btn-default" style="margin-left:90px; margin-top: 10px"><i class="fa fa-search" aria-hidden="true"></i>
+                  </button>
+          </form>
+          </div>
+
+          <div class="cart largenav col-md-1" style="margin-right: 50px; margin-top: 12px">
+                <a class="cart-button">
+                    <i class="fa fa-gavel" aria-hidden="true" > </i> <span style="margin-left: 5px; margin-right: 5px">Lelang</span>
+                    <span class="item-number">0</span>
+                 
+                </a>
+          </div>
+
+          <div class="col-md-1 col-sm-1 col-xs-1">
+            <a routerLink="" (click)="bukalelang()"><img src="../assets/bid4.png" style="margin-top: 20px"></a>
+          </div>
+
+            <div class="col-md-1" *ngIf="!dataService.loggedIn">
+
+              <a href="javascript://" [popover]="myPopover2"><h4 style="margin-top:25px; margin-left: 15px;color:white">Login</h4></a>
+              <popover-content #myPopover2 placement="bottom" [closeOnClickOutside]="true">
+              			<ul id="login-dp">
+              				<li>
+              					 <div class="row">
+              							<div class="col-md-12">
+              								<h4 style="color:black">Log in</h4><hr>
+
+              								 <form (ngSubmit)="submit()" class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+              										<div class="form-group">
+              											 <label class="sr-only" for="exampleInputEmail2">Username</label>
+              											 <input type="text" [(ngModel)]="username" class="form-control" name="username" placeholder="Username" required>
+              										</div>
+              										<div class="form-group">
+              											 <label class="sr-only" for="exampleInputPassword2">Password</label>
+              											 <input type="password" [(ngModel)]="password" class="form-control" name="password" placeholder="Password" required>
+                                                            
+              										</div>
+              										<div class="form-group">
+              											 <button type="submit" class="btn btn-primary btn-block">Login</button>
+              										</div>
+              										<div class="checkbox">
+              											 <label>
+              											 <input type="checkbox"> <p style="color:black">keep me logged-in</p>
+              											 </label>
+              										</div>
+              								 </form>
+              							</div>
+              							<div class="bottom text-center">
+              								<a routerLink="/register"><p style="color:black">New here? <a href="#"><b>Join Us</b></a></p></a>
+              							</div>
+              					 </div>
+              				</li>
+              			</ul>
+                    </popover-content>
+            </div>
+
+            <div class="col-md-1" *ngIf="dataService.loggedIn">
+                <a href="#" (click)="logout()"><h4 style="margin-top:25px; margin-left: 15px;color:white">Logout</h4></a>
+              </div>
+              
+            <div class="col-md-1 hidden-xs" *ngIf="!dataService.loggedIn">
+              <a routerLink="/register"><h4 style="margin-top:25px;color:white">Register</h4></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="mySidenav" class="sidenav">
+    <div class="container" style="background-color: #86766C; padding-top: 10px;">
+        <span class="sidenav-heading">Home</span>
+        <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">×</a>
+    </div>
+    <a href="http://clashhacks.in/">Link</a>
+    <a href="http://clashhacks.in/">Link</a>
+    <a href="http://clashhacks.in/">Link</a>
+    <a href="http://clashhacks.in/">Link</a>
+</div>

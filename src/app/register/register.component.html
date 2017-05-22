@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+	<body background="../assets/brown.jpg">
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center">
+				<h1 class="xbootstrap">Registration</h1>
+					<form (ngSubmit)="submit()" #registerForm="ngForm">
+
+						<div class="form-group">
+							<label for="nama" class="cols-sm-2 control-label">Nama</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="nama" [(ngModel)]="nama"  placeholder="Tuliskan Nama Anda" required #registernama="ngModel"/>
+								</div>
+							</div>
+							<div [hidden]="registernama.valid || registernama.pristine"
+						        class="alert alert-danger">
+						        Nama wajib diisi
+						    </div>
+						</div>
+
+						<div class="form-group">
+							<label for="email" class="cols-sm-2 control-label">Email</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="email" [(ngModel)]="email"  placeholder="Tuliskan Email Anda" required #registeremail="ngModel" ngModel pattern="[^ @]*@[^ @]*"/>
+								</div>
+							</div>
+							<div [hidden]="registeremail.valid || registeremail.pristine"
+						        class="alert alert-danger">
+						        Email wajib diisi dengan format yang benar
+						    </div>
+						</div>
+
+						<div class="form-group">
+							<label for="username" class="cols-sm-2 control-label">Username</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="username" [(ngModel)]="username"  placeholder="Tuliskan Username Anda" required #registerusername="ngModel"/>
+								</div>
+							</div>
+							<div [hidden]="registerusername.valid || registerusername.pristine"
+						        class="alert alert-danger">
+						        Username wajib diisi
+					        </div>
+						</div>
+
+						<div class="form-group">
+							<label for="alamat" class="cols-sm-2 control-label">Alamat</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-map-marker fa-5x" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="alamat" [(ngModel)]="alamat"  placeholder="Tuliskan Alamat Anda" required #registeralamat="ngModel"/>
+								</div>
+							</div>
+							<div [hidden]="registeralamat.valid || registeralamat.pristine"
+						        class="alert alert-danger">
+						        Alamat wajib diisi
+					        </div>
+						</div>
+
+						<div class="form-group">
+						  <label for="gender" class="cols-sm-2 control-label">Gender</label><br>
+						  <div class="col-sm-10">
+						    <label class="radio-inline" for="gender-0">
+						      <input type="radio" name="gender" id="gender-0" [(ngModel)]="jeniskelamin" value="Male" checked="checked" required #registerjeniskelamin="ngModel">
+						      Male
+						    </label>
+						    <label class="radio-inline" for="gender-1">
+						      <input type="radio" name="gender" id="gender-1" [(ngModel)]="jeniskelamin" value="Female" required #registerjeniskelamin="ngModel">
+						      Female
+						    </label>
+						  </div>
+						</div><br>
+
+
+
+						<div class="form-group">
+							<label for="notelp" class="cols-sm-2 control-label">Nomor Handphone</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="notelp"[(ngModel)]="notelp"  placeholder="Tuliskan Nomor Handphone Anda" required #registernotelp="ngModel" ngModel pattern="[0-9]+" ngModel minlength="11"/>
+								</div>
+							</div>
+							<div [hidden]="registernotelp.valid || registernotelp.pristine"
+						        class="alert alert-danger">
+						        No Handphone wajib diisi dengan format yang benar
+					        </div>
+						</div>
+
+						<div class="form-group">
+							<label for="password" class="cols-sm-2 control-label">Password</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									<input type="password" class="form-control" name="password" [(ngModel)]="password"  placeholder="Tuliskan Password Anda" required #registerpassword="ngModel"/>
+								</div>
+							</div>
+							<div [hidden]="registerpassword.valid || registerpassword.pristine"
+						        class="alert alert-danger">
+						        Password wajib diisi
+					        </div>
+						</div>
+
+                        <br>
+						<div class="form-group ">
+							<button id="button" class="form-control btn btn-block btn-raised btn-primary btn-lg" [disabled]="!nama || !email || !registeremail.valid || !username || !alamat || !jeniskelamin || !notelp || !registernotelp.valid || !password" style="width: 300px; margin: auto">Register</button>
+						</div>
+
+					</form>
+
+
+
+
+				</div>
+			</div>
+		</div>
+
+		 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+	</body>
+</html>

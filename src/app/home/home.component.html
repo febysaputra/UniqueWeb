@@ -1,0 +1,164 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
+ 
+
+
+
+
+<div class="container">
+<div id="first-slider">
+    <div id="carousel-example-generic" class="carousel slide carousel-fade">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <!-- Item 1 -->
+            <div class="item active slide1">
+                <div class="row">
+
+                    <div class="col-md-9 text-left">
+                        <h3 data-animation="animated bounceInDown">Add images, or even your logo!</h3>
+                        <h4 data-animation="animated bounceInUp">Easily use stunning effects</h4>             
+                     </div>
+                </div>
+             </div> 
+            <!-- Item 2 -->
+            <div class="item slide2">
+                <div class="row">
+                    <div class="col-md-7 text-left">
+                        <h3 data-animation="animated bounceInDown"> 50 animation options A beautiful</h3>
+                        <h4 data-animation="animated bounceInUp">Create beautiful slideshows </h4>
+                     </div>
+
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="item slide3">
+                <div class="row"><div class="container">
+                    <div class="col-md-7 text-left">
+                        <h3 data-animation="animated bounceInDown">Simple Bootstrap Carousel</h3>
+                        <h4 data-animation="animated bounceInUp">Bootstrap Image Carousel Slider with Animate.css</h4>
+                     </div>
+  
+                </div></div>
+            </div>
+            <!-- Item 4 -->
+            <div class="item slide4">
+                <div class="row"><div class="container">
+                    <div class="col-md-7 text-left">
+                        <h3 data-animation="animated bounceInDown">We are creative</h3>
+                        <h4 data-animation="animated bounceInUp">Get start your next awesome project</h4>
+                     </div>
+
+                </div></div>
+            </div>
+            <!-- End Item 4 -->
+    
+        </div>
+        <!-- End Wrapper for slides-->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i><span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <i class="fa fa-angle-right"></i><span class="sr-only">Next</span>
+        </a>
+    </div>
+</div><br><br>
+
+
+	<h2><span class="label label-default" style="background-color: #A8A265"> Lelang Terbaru </span></h2>
+    <div class="row">
+    <div *ngFor="let item of itemsterbaru;let i =index">
+      
+        <div class="col-md-3">
+            <div class="product-item" style="background-color: #D0AF52">
+              <div class="post-img-content">
+                <img [src]="urlImage[i]" style="min-width: 230px; max-height: 200px; " class="img-responsive" alt="">
+                <div>
+                  <a href="#" class="btn">Zoom</a>
+                  <a href="#" class="btn">View</a>
+                </div>
+              </div>
+              <h3><a href="shop-item.html" style="color: white"><h4>{{item.namabarang}}</h4></a></h3>
+              <div class="pi-price">{{item.hargasementara}}</div>
+              <a (click)="bidnow(itemsterbaru.length-i)" class="btn add2cart" style="color: white">Bid Now</a><br>
+              <div class="sticker sticker-new"></div>
+              <hr>
+              
+
+            <div class="row">
+                <div class="col-md-3">
+                    <b >Days</b><br><b style="margin-left: 15px">{{days.name}}</b>
+                </div>
+                <div class="col-md-3 row">
+                    <b>Hours</b><br><b style="margin-left: 23px">{{hours.name}}</b>
+                </div>
+                <div class="col-md-3">
+                    <b>Minutes</b><br><b style="margin-left: 21px">{{minutes.name}}</b>
+                </div>
+                <div class="col-md-3">
+                    <b>Seconds</b><br><b style="margin-left: 23px">{{seconds.name}}</b>
+                </div>
+
+            </div>
+            </div>
+        </div>
+        </div>
+      </div>
+
+	<h2><div class="label label-default" style="background-color: #A8A265"> Lelang Rekomendasi </div></h2>
+    <div class="row">
+    <div *ngFor="let item of itemsterbaru">
+	        <div class="col-md-3">
+            <div class="product-item" style="background-color: #D0AF52">
+              <div class="post-img-content">
+                <img src="../assets/reja.png" style="min-width: 230px; max-height: 200px; " class="img-responsive" alt="Berry Lace Dress">
+                <div>
+                  <a href="#" class="btn">Zoom</a>
+                  <a href="#" class="btn">View</a>
+                </div>
+              </div>
+              <h4><a href="#" style="color: white">Adenya Reja Samsu</a></h4>
+              <div class="pi-price">Rp 300.000</div>
+              <a href="javascript:;" class="btn add2cart" style="color: white">Bid Now</a><br>
+
+              <hr>
+            <div class="row">
+                <div class="col-md-2">
+                    <b style="margin-right : 30px">Days</b><br><b style="margin-left: 15px">{{days.name}}</b>
+                </div>
+                <div class="col-md-3">
+                    <b style="margin-left: 5px">Hours</b><br><b style="margin-left: 23px">{{hours.name}}</b>
+                </div>
+                <div class="col-md-3">
+                    <b>Minutes</b><br><b style="margin-left: 21px">{{minutes.name}}</b>
+                </div>
+                <div class="col-md-3">
+                    <b>Seconds</b><br><b style="margin-left: 23px">{{seconds.name}}</b>
+                </div>
+
+            </div>
+            </div>
+        </div>
+      </div>
+      </div>
+      <br><br>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

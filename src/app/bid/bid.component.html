@@ -1,0 +1,202 @@
+
+
+
+<br><br><br>
+
+<div class="container">
+	<div class="row">
+	<div class="col-sm-9">
+			<div class="panel panel-default">
+				  <div class="panel-body" style=" border-bottom: 2px solid #ddd">{{listdata.namalapak}}</div>
+				  <div class="panel-body">
+					  <div class="row">
+						  <div class="col-md-6">
+						    <app-barang #listdata></app-barang>
+						  </div><br>
+						  <div class="col-md-6">
+							  	<ul class="list-group" style="border: 5px solid #ddd">
+									  <li class="list-group-item">Kategori : {{listdata.kategori}}</li>
+									  <li class="list-group-item">Sertifikat : {{listdata.sertifikat}}</li>
+									  <li class="list-group-item">Status lapak : {{listdata.statuslapak}}</li>
+									  <li class="list-group-item">Posted : {{listdata.tanggal | date: 'dd/MM/yyyy'}}</li>
+									  <li class="list-group-item">
+										  <div class="row">
+										  	<div class="col-md-3">
+										  		<h4><div class="label label-warning">Next Bid</div></h4>
+										  	</div>
+										  	<div class="col-md-8">
+										  		<h4>{{listdata.bataspenawaran}}</h4>
+										  	</div>
+										  </div>
+									  </li>
+									  <li class="list-group-item">
+									  <div class="row">
+											<div class="col-md-8">
+										 	 <span>Harga Sementara :</span><h3 style="margin-top: 0px">{{listdata.hargasementara}}</h3>
+										 	</div>
+										 	<div class="col-md-3">
+												<div style="margin-top: 10px"><button data-toggle="modal" data-target="#squarespaceModal" class="btn btn-danger center-block">Make Bid</button></div>
+											</div>
+									  </div>
+										<!-- line modal -->
+										<div class="modal fade" id="squarespaceModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+													<h3 class="modal-title" id="lineModalLabel">Make Your Bid</h3>
+												</div>
+												<div class="modal-body">
+										            <!-- content goes here -->
+										            <h4>Pilih kelipatan bid yang anda inginkan</h4>
+													<form class="form-inline">
+													  <div class="form-group">
+													  <fieldset disabled="">
+													    <label class="sr-only" for="disabledTextInput"></label>
+													    <div class="input-group">
+													      <div class="input-group-addon">Rp</div>
+													      <input type="text" class="form-control" id="disabledTextInput" placeholder={{hargatawar}}>
+													      
+													    </div>
+													    </fieldset>
+													  </div>
+													 
+													</form><br>
+													<button (click)="setKelipatan(1)" type="button" class="btn btn-danger btn-circle btn-lg"><span style="margin: auto">1x</span></button>
+
+													<button type="button" (click)="setKelipatan(2)" class="btn btn-danger btn-circle btn-lg"><span style="margin: auto">2x</span></button>
+
+													<button (click)="setKelipatan(3)" type="button" class="btn btn-danger btn-circle btn-lg"><span style="margin: auto">3x</span></button>
+
+													<button (click)="setKelipatan(4)" type="button" class="btn btn-danger btn-circle btn-lg"><span style="margin: auto">4x</span></button>
+
+													<button (click)="setKelipatan(5)" type="button" class="btn btn-danger btn-circle btn-lg"><span style="margin: auto">5x</span></button>
+
+													<button (click)="setKelipatan(6)" type="button" class="btn btn-danger btn-circle btn-lg"><span style="margin: auto">6x</span></button>
+
+													<button (click)="setKelipatan(7)" type="button" class="btn btn-danger btn-circle btn-lg"><span style="margin: auto">7x</span></button>
+													<br><br>
+													<div class="garismerah"></div>
+													<br>
+
+													<button (click)="Bidding()" class="btn btn-danger center-block" style="margin: auto;"><h4>Confirm Bid</h4></button>
+												</div><br>
+														
+												
+													
+											</div>
+										  </div>
+										</div>
+										
+									 
+									   </li>
+								</ul>
+							</div>
+						</div>	
+					</div>
+				</div>
+			
+
+					<br>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									 <!-- Nav tabs -->
+									  <ul class="nav nav-tabs" role="tablist">
+									    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Spesifikasi</a></li>
+									    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Score Board</a></li>
+									    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Feedback</a></li>
+									    
+									  </ul>
+
+									  <!-- Tab panes -->
+									  <div class="tab-content">
+									    <div role="tabpanel" class="tab-pane active" id="home">{{listdata.spesifikasibarang}}</div>
+									    <div role="tabpanel" class="tab-pane" id="profile">
+									    	<!--table-->
+											       <table class="table table-striped">
+											       <thead>
+											            <tr class="info">
+											                <th>Urutan</th>
+											                <th>Username</th>
+											                <th>Recent Bid</th>
+											                <th>Status</th>
+											            </tr>
+											        </thead>
+											        <tbody>
+											            <tr>
+											        <!--first example-->
+											            <td>1</td>
+											            <td >{{usernamepembeli[0]}}</td>
+											            <td>{{hargatawarpembeli[0]}}</td>
+											            <td></td>
+											        </tr>
+											        <tr>
+											        <!--second example-->
+											            <td>2</td>
+											            <td>{{usernamepembeli[1]}}</td>
+											            <td>{{hargatawarpembeli[1]}}</td>
+											            <td></td>
+											          
+											        </tr>
+											        <tr>
+											        <!--third example-->
+											            <td>3</td>
+											            <td>{{usernamepembeli[2]}}</td>
+											            <td>{{hargatawarpembeli[2]}}</td>
+											            <td></td>
+											           
+											        </tr>
+											        </tbody>
+											    </table>
+									    </div>
+
+									    
+									  </div>
+								</div>
+							</div>
+						</div>
+				  </div>
+		</div>
+
+		<div class="col-md-3">
+			 <div class="card hovercard" style="background-color: white">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        <a href="#" (click)="viewProfile(listdata.usernamepenjual)" >{{listdata.usernamepenjual}}</a>
+                    </div>
+                    <div class="desc">Passionate designer</div>
+                    <div class="desc">Curious developer</div>
+                    <div class="desc">Tech geek</div>
+                </div>
+                <div class="bottom">
+                    <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-danger btn-sm" rel="publisher"
+                       href="https://plus.google.com/+ahmshahnuralam">
+                        <i class="fa fa-google-plus"></i>
+                    </a>
+                    <a class="btn btn-primary btn-sm" rel="publisher"
+                       href="https://plus.google.com/shahnuralam">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                    <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
+                        <i class="fa fa-behance"></i>
+                    </a>
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+
+<br><br>
+
