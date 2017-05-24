@@ -7,6 +7,7 @@ import (
     "net/http"
     "crypto/sha256"
     "time"
+    "strings"
 
     "goji.io"
     "goji.io/pat"
@@ -181,7 +182,7 @@ func getUser(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
         return
       }
     }
-    respBody, err := json.MarshalIndent(DataSend{User:User{Username:user.Username,Nama:user.Nama,Alamat:user.Alamat,NoTelp:user.NoTelp,JenisKelamin:user.JenisKelamin,TiketLelang:user.TiketLelang},
+    respBody, err := json.MarshalIndent(DataSend{User:User{Username:user.Username,Nama:user.Nama,Alamat:user.Alamat,NoTelp:user.NoTelp,JenisKelamin:user.JenisKelamin,TiketLelang:user.TiketLelang,FotoProfile:user.FotoProfile},
                       Lelang:lelang}, "", "  ")
     if err != nil {
       log.Fatal(err)
@@ -278,7 +279,7 @@ func updateUser(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
           }
 
           if msg["filename"] != nil {
-            varmap["fotoprofile"] = msg["filename"].(string)
+            varmap["fotoprofile"] = strings.Join(msg["filename"].([]string), " ")
           }
 
           err := c.Update(bson.M{"username": username}, bson.M{"$set": varmap})
@@ -288,7 +289,7 @@ func updateUser(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
             return
           }
 
-            if username != user.Username {
+            if username != user.Username && username != "" {
               deleteCookie := http.Cookie{Name: "Auth", Value: "none", Expires: time.Now()}
               http.SetCookie(w, &deleteCookie)
               auth.SetToken(w,r,user.Username,user.Class)
@@ -328,17 +329,39 @@ func updateUser(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
         if tipe == "password" {
 
           newpass := r.FormValue("newpass")
+          oldpass := r.FormValue("oldpass")
+
+          var userpassword User
+
+          err:= c.Find(bson.M{"username": username}).One(&userpassword)
+
           passEncrypt := sha256.Sum256([]byte(newpass))
           user.Password = fmt.Sprintf("%x", passEncrypt)
 
-          if user.Password != ""{
-            err := c.Update(bson.M{"username": username}, bson.M{"$set": bson.M{"password": user.Password}})
+          if userpassword.Password == oldpass{
+            err = c.Update(bson.M{"username": username}, bson.M{"$set": bson.M{"password": user.Password}})
             if err != nil{
               jsonhandler.ErrorWithJSON(w, "Gagal mengupdate password user", http.StatusOK)
               return
             }
           }
           w.WriteHeader(http.StatusNoContent)
+        }
+
+        if tipe == "alamat" {
+          user.Alamat = r.FormValue("alamat");
+
+           if user.Alamat != ""{
+              varmap["alamat"] = user.Alamat
+            }
+
+            err := c.Update(bson.M{"username": username}, bson.M{"$set": varmap})
+            if err != nil{
+              jsonhandler.ErrorWithJSON(w, "Gagal mengupdate alamat user", http.StatusOK)
+              return
+            }
+            w.WriteHeader(http.StatusNoContent)
+
         }
     }
 }

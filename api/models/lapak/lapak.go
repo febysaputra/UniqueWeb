@@ -43,6 +43,7 @@ func RoutesLapak(mux *goji.Mux, session *mgo.Session) {
     mux.HandleFunc(pat.Put("/mylapak/editlapak/:idlapak"), auth.Validate(updateLapak(session)))
     mux.HandleFunc(pat.Delete("/mylapak/deletelapak/:idlapak"), auth.Validate(deleteLapak(session)))
     mux.HandleFunc(pat.Put("/lapak/:idlapak"), auth.Validate(validasilapak(session)))
+    mux.HandleFunc(pat.Put("/startlapak/:idlapak"), auth.Validate(startlapak(session)))
 }
 
 func EnsureLapak(s *mgo.Session) {
@@ -174,7 +175,7 @@ func getLapak(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
             return
         }
 
-        respBody, err := json.MarshalIndent(Lapak{UsernamePenjual:lapak.UsernamePenjual,NamaBarang:lapak.NamaBarang,Tanggal:lapak.Tanggal,SpesifikasiBarang:lapak.SpesifikasiBarang,
+        respBody, err := json.MarshalIndent(Lapak{IdLapak:lapak.IdLapak,UsernamePenjual:lapak.UsernamePenjual,NamaBarang:lapak.NamaBarang,Tanggal:lapak.Tanggal,SpesifikasiBarang:lapak.SpesifikasiBarang,
                                                   Foto:lapak.Foto,StatusLapak:lapak.StatusLapak,Kategori:lapak.Kategori,
                                                   Sertifikat:lapak.Sertifikat,Kondisi:lapak.Kondisi,Berat:lapak.Berat,Waktu:lapak.Waktu,HargaSementara:lapak.HargaSementara,BatasPenawaran:lapak.BatasPenawaran,
                                                   UsernamePemenang:lapak.UsernamePemenang}, "", "  ")
@@ -188,37 +189,65 @@ func getLapak(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
 
 func updateLapak(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
     return func(w http.ResponseWriter, r *http.Request) {
+        claims, ok := r.Context().Value(auth.MyKey).(auth.Claims)
+        if !ok {
+          http.NotFound(w, r)
+          return
+        }
         session := s.Copy()
         defer session.Close()
 
         IdLapak := pat.Param(r, "idlapak")
 
         var lapak Lapak
-        decoder := json.NewDecoder(r.Body)
-        err := decoder.Decode(&lapak)
-        if err != nil {
-            jsonhandler.ErrorWithJSON(w, "Incorrect body", http.StatusBadRequest)
-            return
-        }
+        var varmap map[string]interface{}
+        in := []byte(`{}`)
+        json.Unmarshal(in, &varmap)
+
+        var check struct{ UsernamePenjual     string       `json:"usernamepenjual"` }
 
         c := session.DB("unique").C("lapak")
 
-        lapak.IdLapak = IdLapak
-        err = c.Update(bson.M{"idlapak": IdLapak}, &lapak)
-        if err != nil {
-            switch err {
-            default:
-                jsonhandler.ErrorWithJSON(w, "Database error", http.StatusInternalServerError)
-                log.Println("Failed update lapak: ", err)
-                return
-            case mgo.ErrNotFound:
-                jsonhandler.ErrorWithJSON(w, "lapak not found", http.StatusNotFound)
-                return
-            }
-        }
+        c.Find(bson.M{"idlapak": IdLapak}).Select(bson.M{"usernamepenjual" : 1}).One(&check)
 
+        if check.UsernamePenjual != claims.Username{
+          jsonhandler.ErrorWithJSON(w, "you don't have permission", http.StatusNotFound)
+          return
+        }else{
+          msg := upload.UploadHandler(r,IdLapak,"lapak")
+          if msg["filename"] != nil {
+            varmap["foto"] = msg["filename"].([]string)
+          }
+          lapak.NamaBarang = r.FormValue("namabarang")
+          if lapak.NamaBarang != "" { varmap["namabarang"] = lapak.NamaBarang }
+          lapak.SpesifikasiBarang = r.FormValue("spefikasibarang")
+          if lapak.SpesifikasiBarang != "" { varmap["spefikasibarang"] = lapak.SpesifikasiBarang }
+          lapak.Kategori = r.FormValue("kategori")
+          if lapak.Kategori != ""{ varmap["kategori"] = lapak.Kategori }
+          lapak.Sertifikat = r.FormValue("sertifikat")
+          if lapak.Sertifikat != ""{ varmap["sertifikat"] = lapak.Sertifikat }
+          lapak.HargaSementara,_ = strconv.Atoi(r.FormValue("hargasementara"))
+          if lapak.HargaSementara != 0{ varmap["hargasementara"] = lapak.HargaSementara }
+          lapak.HargaLimit,_ = strconv.Atoi(r.FormValue("hargalimit"))
+          if lapak.HargaLimit != 0{ varmap["hargalimit"] = lapak.HargaLimit }
+          lapak.BatasPenawaran,_ = strconv.Atoi(r.FormValue("bataspenawaran"))
+          if lapak.BatasPenawaran != 0{ varmap["bataspenawaran"] = lapak.BatasPenawaran }
+
+          err := c.Update(bson.M{"idlapak": IdLapak},bson.M{"$set": varmap})
+          if err != nil {
+              switch err {
+              default:
+                  jsonhandler.ErrorWithJSON(w, "Database error", http.StatusInternalServerError)
+                  log.Println("Failed update lapak: ", err)
+                  return
+              case mgo.ErrNotFound:
+                  jsonhandler.ErrorWithJSON(w, "lapak not found", http.StatusNotFound)
+                  return
+              }
+        }
         w.WriteHeader(http.StatusNoContent)
     }
+  }
 }
 
 func deleteLapak(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
@@ -265,6 +294,34 @@ func validasilapak(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) 
 
         w.WriteHeader(http.StatusNoContent)
       } else{
+        jsonhandler.ErrorWithJSON(w, "you don't have permission", http.StatusNotFound)
+        return
+      }
+    }
+}
+
+func startlapak(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
+    return func(w http.ResponseWriter, r *http.Request) {
+      claims, ok := r.Context().Value(auth.MyKey).(auth.Claims)
+      if !ok {
+        http.NotFound(w, r)
+        return
+      }
+
+      session := s.Copy()
+      defer session.Close()
+
+      IdLapak := pat.Param(r, "idlapak")
+      c:= session.DB("unique").C("lapak")
+      var check struct{ UsernamePenjual     string     `json:"usernamepenjual"` }
+      c.Find(bson.M{"idlapak": IdLapak}).Select(bson.M{"usernamepenjual" : 1}).One(&check)
+      if claims.Username == check.UsernamePenjual{
+        r.ParseMultipartForm(500000)
+        waktuakhir,_ := time.Parse("2006-01-02 15:04 MST",r.FormValue("waktu"))
+        selangwaktu := time.Until(waktuakhir)
+        log.Println(time.Now(),selangwaktu)
+        c.Update(bson.M{"idlapak": IdLapak}, bson.M{"$set": bson.M{"waktu": waktuakhir}})
+      }else{
         jsonhandler.ErrorWithJSON(w, "you don't have permission", http.StatusNotFound)
         return
       }
