@@ -45,7 +45,7 @@ export class BukalelangComponent implements OnInit {
 	    let formData = new FormData();
 	    let files = this.listfile.Allfiles();
 
-	        if (files.length > 1) { // a file was selected
+	        if (files.length > 0) { // a file was selected
 	            for (let i = 0; i < files.length; i++) {
 	                formData.append('foto', files[i]);
 	            }

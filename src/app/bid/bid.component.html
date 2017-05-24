@@ -7,7 +7,7 @@
 	<div class="row">
 	<div class="col-sm-9">
 			<div class="panel panel-default">
-				  <div class="panel-body" style=" border-bottom: 2px solid #ddd">{{listdata.namalapak}}</div>
+				  <div class="panel-body" style=" border-bottom: 2px solid #ddd">{{listdata.namabarang}}</div>
 				  <div class="panel-body">
 					  <div class="row">
 						  <div class="col-md-6">
@@ -167,11 +167,11 @@
 
                 </div>
                 <div class="avatar">
-                    <img alt="" src="http://lorempixel.com/100/100/people/9/">
+                    <img alt="" [src]="listdata.urlFoto">
                 </div>
                 <div class="info">
                     <div class="title">
-                        <a href="#" (click)="viewProfile(listdata.usernamepenjual)" >{{listdata.usernamepenjual}}</a>
+                        <a routerLink="" (click)="viewProfile(listdata.usernamepenjual)" >{{listdata.usernamepenjual}}</a>
                     </div>
                     <div class="desc">Passionate designer</div>
                     <div class="desc">Curious developer</div>

@@ -23,6 +23,7 @@ import { EditgeneralComponent } from './editgeneral/editgeneral.component';
 import { EditemailComponent } from './editemail/editemail.component';
 import { EditpasswordComponent } from './editpassword/editpassword.component';
 import { EditlapakComponent } from './editlapak/editlapak.component';
+import { EditalamatComponent } from './editalamat/editalamat.component';
 
 import { DataService } from './data/data.service';
 import { DropzoneComponent } from './dropzone/dropzone.component';
@@ -46,6 +47,7 @@ import { DropzoneComponent } from './dropzone/dropzone.component';
     EditemailComponent,
     EditpasswordComponent,
     EditlapakComponent,
+    EditalamatComponent,
     DropzoneComponent
 
 
@@ -94,19 +96,23 @@ import { DropzoneComponent } from './dropzone/dropzone.component';
         component : LoginComponent
       },
       {
-        path:'editgeneral',
+        path:'editgeneral/:username',
         component : EditgeneralComponent
       },
       {
-        path:'editemail',
+        path:'editemail/:username',
         component : EditemailComponent
       },
       {
-        path:'editpass',
+        path:'editpass/:username',
         component : EditpasswordComponent
       },
       {
-        path:'editlapak',
+        path:'editalamat/:username',
+        component : EditalamatComponent
+      },
+      {
+        path:'editlapak/:id',
         component : EditlapakComponent
       },
 

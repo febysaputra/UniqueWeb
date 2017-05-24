@@ -15,6 +15,7 @@ import { DataService } from '../data/data.service';
   ],
   providers:[DataService]
 })
+
 export class ProfilComponent implements OnInit {
 
 	//untuk routes
@@ -27,18 +28,12 @@ export class ProfilComponent implements OnInit {
   	private jeniskelamin;
   	private email;
   	private notelp;
+  	private urlImage = '../assets/profileuser/';
 
   	private alamat;
 
   	//lapak
-  	private namabarang;
-  	private kategori;
-  	private berat;
-  	private kondisi;
-  	private hargasementara;
-  	private hargalimit;
-  	private bataspenawaran;
-  	private spesifikasibarang;
+  	private listlapak;
 
 
 	constructor(private http: Http, private route: ActivatedRoute,private toastr: ToastrService, private router: Router,private dataService: DataService) { }
@@ -51,9 +46,33 @@ export class ProfilComponent implements OnInit {
 	  	this.http.get(this.dataService.urlGetUser + "/" + this.paramsRoutes, {withCredentials: true})
 	    .subscribe(res =>{
 	    	let data = JSON.parse(res['_body']);
-	    	console.log(data['user']); 
-	    	console.log(data['lelang']);
+	    	this.username = data['user'].username;
+	    	this.nama = data['user'].nama; 
+	    	this.jeniskelamin = data['user'].jeniskelamin;
+	    	this.email = data['user'].email;
+	    	this.notelp = data['user'].notelp;
+	    	this.alamat = data['user'].alamat;
+	    	this.urlImage = this.urlImage + this.username + "/" + data['user'].fotoprofile;
+
+	    	this.listlapak = data['lelang'];
 	    });
 	}
 
+	//Akun
+	routesEditGeneral(routes){
+		this.router.navigate(['/editgeneral', routes]);
+	}
+
+	routesEditEmail(routes){
+		this.router.navigate(['/editemail', routes]);
+	}
+
+	routesEditPass(routes){
+		this.router.navigate(['/editpass', routes]);
+	}
+
+	//Alamat
+	routesEditAlamat(routes){
+		this.router.navigate(['/editalamat', routes]);
+	}
 }

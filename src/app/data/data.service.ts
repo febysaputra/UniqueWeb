@@ -15,6 +15,7 @@ export class DataService{
 	public urlVerifikasiUser = 'http://localhost:8080/verifieduser';
 	public urlCheckStatusUser = 'http://localhost:8080/checkstatususer';
 	public urlGetUser = 'http://localhost:8080/profile';
+	public urlEditProfile = 'http://localhost:8080/profile/editprofile';
 
 	//lapak
 	public urlLapak = 'http://localhost:8080/lapak';

@@ -38,6 +38,8 @@ export class BarangComponent implements OnInit {
   	private urlImage: any[]= [];
  	private tempUrl = '../assets/lapak/';
 
+ 	private urlFoto = '../assets/profileuser/';
+
 	constructor(public http: Http, public route: ActivatedRoute, public router: Router,public dataService: DataService) { }
 
 	ngOnInit() {
@@ -63,6 +65,14 @@ export class BarangComponent implements OnInit {
 	   		for (var i = 0; i < this.foto.length; i++) {
 	    		this.urlImage[i] = this.tempUrl + this.id + "/" + this.foto[i.toString()];
 	    	}
+
+	    	//ambil foto profile
+	    	this.http.get(this.dataService.urlGetUser + "/" + this.usernamepenjual)
+	    	.subscribe(res =>{
+	    		let data = JSON.parse(res['_body']);
+	    		this.urlFoto = this.urlFoto + this.usernamepenjual + "/" + data['user'].fotoprofile;
+
+	    	});
 	    });
 	}
 

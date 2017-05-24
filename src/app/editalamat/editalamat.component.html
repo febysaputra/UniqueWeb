@@ -19,8 +19,8 @@
 	      <div class="tabbable-line">
 	      	<div class="panel panel-default">
 	        <ul class="nav nav-tabs tabtop  tabsetting" style="margin-left: 20px">
-	          <li class="active"> <a href="#tab_default_1" data-toggle="tab"> Akun </a> </li>
-	          <li class="disabled"> <a href="#" data-toggle="tab"> Alamat</a> </li>
+	          <li class="disabled"> <a href="#" data-toggle="tab"> Akun </a> </li>
+	          <li class="active"> <a href="#tab_default_2" data-toggle="tab"> Alamat</a> </li>
 	          <li class="disabled"> <a href="#" data-toggle="tab"> Lapak </a> </li>
 	          <li class="disabled"> <a href="#" data-toggle="tab"> Transaksi</a> </li>
 	          
@@ -30,47 +30,22 @@
 	          <div class="tab-pane active fade in" id="tab_default_1">
 	            <div class="col-md-12">	
 
-	               <h3> Edit Informasi Umum </h3> 
+	               <h3> Edit ALamat </h3> 
 	               <hr>
-					<form class="form-horizontal" enctype="multipart/form-data" (ngSubmit)="submit()" #editgeneralForm="ngForm">
-                          <div class="form-group">
-                            <label for="namabarang" class="col-sm-2 control-label">Gambar</label>
-                            <img [src]="urlImage" style="min-width: 230px; max-height: 200px; " class="img-responsive" alt="">
-                            <div class="col-sm-10">
-                              <input type="file"  type="file" [multiple]="false" name="foto" #fotoprofile>
-                            </div>
-                          </div>
-                          <hr>
+					<form class="form-horizontal" enctype="multipart/form-data" (ngSubmit)="submit(username)" #editalamatForm="ngForm">
 
-                         <div class="form-group">
-                            <label for="namabarang" class="col-sm-2 control-label">Username</label>
+
+                          <div class="form-group">
+                            <label for="namaalamat" class="col-sm-2 control-label">Alamat Lengkap</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" name ="username" [(ngModel)]="username" style="width: 500px">
+                              <input type="text" class="form-control" name="alamat" [(ngModel)]="alamat" style="width: 500px">
                             </div>
                           </div>
 
-                          <div class="form-group">
-                            <label for="namabarang" class="col-sm-2 control-label">Nama</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" name="nama" [(ngModel)]="nama" style="width: 500px">
-                            </div>
-                          </div>
-                          
-                          <div class="form-group">
-                        <label for="kondisi" class="col-sm-2 control-label">Jenis Kelamin</label>
-                            <div class="col-sm-10">
-                                <label class="radio-inline">
-                                  <input type="radio" name="jeniskelamin" id="inlineRadio1" [(ngModel)]="jeniskelamin" value="Laki-laki"> Laki-laki
-                                </label>
-                            
-                                <label class="radio-inline">
-                                  <input type="radio" name="jeniskelamin" id="inlineRadio2" [(ngModel)]="jeniskelamin" value="Perempuan"> Perempuan
-                                </label>
-                            </div>
-                        </div>
+
                         <hr>
                         <button type="submit" class="btn btn-danger pull-right" style="margin-left: 10px">Simpan</button>
-                        <a routerLink="" (click)="back(username)" class="btn btn-default pull-right">Kembali</a>
+                        <button type="button" class="btn btn-default pull-right">Kembali</button>
                         
                      </form>
 	           </div>

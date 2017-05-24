@@ -30,25 +30,25 @@
 	          <div class="tab-pane active fade in" id="tab_default_1">
 	            <div class="col-md-12">	
 
-	               <h3> Informasi Umum <a routerLink="/editgeneral" class="btn btn-danger pull-right" style="margin-right: 20px">Edit</a></h3> 
+	               <h3> Informasi Umum <a routerLink="" (click)="routesEditGeneral(username
+	               )" class="btn btn-danger pull-right" style="margin-right: 20px">Edit</a></h3> 
 	               <hr>
-	               <p>Foto Profil
-	               <img>
-	               </p>
+	               <p>Foto Profil</p>
+	               <img [src]="urlImage" style="min-width: 230px; max-height: 200px; " class="img-responsive" alt="">
 	               <hr>
-	               <p>Username</p>
+	               <p>Username {{username}}</p>
 	               <hr>
-	               <p>Nama</p>
+	               <p>Nama {{nama}}</p>
 	               <hr>
-	               <p>Jenis Kelamin</p>
+	               <p>Jenis Kelamin {{jeniskelamin}}</p>
 	              	<br>
-	               <h3> Email dan Telepon<a routerLink="/editemail" class="btn btn-danger pull-right" style="margin-right: 20px">Edit</a></h3>
+	               <h3> Email dan Telepon<a routerLink="" (click)="routesEditEmail(username)" class="btn btn-danger pull-right" style="margin-right: 20px">Edit</a></h3>
 	               <hr>
-	               <p>E-mail</p>
+	               <p>E-mail {{email}}</p>
 	               <hr>
-	               <p>Telepon</p>
+	               <p>Telepon {{notelp}}</p>
 	               <br>
-	               <h3> Password<a routerLink="/editpass" class="btn btn-danger pull-right" style="margin-right: 20px">Edit</a></h3>
+	               <h3> Password<a routerLink="" (click)="routesEditPass(username)" class="btn btn-danger pull-right" style="margin-right: 20px">Edit</a></h3>
 	               <hr>
 	           </div>
 
@@ -56,39 +56,127 @@
 	          <div class="tab-pane fade" id="tab_default_2">
 	
 	            <div class="col-md-12">
-	            	<h3> Daftar Alamat<button class="btn btn-danger pull-right" style="margin-right: 20px">+ Tambah Alamat</button></h3>
+	            	<h3> Daftar Alamat<a routerLink="" (click)="routesEditAlamat(username)" class="btn btn-danger pull-right" style="margin-right: 20px"> Edit Alamat</a></h3>
 	            	<hr>
 	            	<div class="row">
-	            		<div class="col-md-2">
-	            			Nama Alamat
-	            		</div>
 	            		<div class="col-md-6">
-	            			Alamat
+	            			Alamat {{alamat}}
 	            		</div>
 	            	</div>
 				</div>
 	          </div>
 	          <div class="tab-pane fade" id="tab_default_3">
+	          <div *ngFor="let item of listlapak">
 	            <div class="col-md-12">
-	            	<h3> Informasi Lapak<a routerLink="/editlapak" class="btn btn-danger pull-right" style="margin-right: 20px">Edit</a></h3>
+	            	<h3> Informasi Lapak<a routerLink="" (click)="routesEditLapak(id)" class="btn btn-danger pull-right" style="margin-right: 20px">Edit</a></h3>
 	            	<hr>
 	            	<p>Foto Header Lapak</p>
 	               <hr>
-	               <p>Catatan Pelapak</p>
+	               <p>Catatan Pelapak {{item.spesifikasibarang}}</p>
 	               <hr>
+				</div>
 				</div>
 	          </div>
 	          <div class="tab-pane fade" id="tab_default_4">
+	          <div class="row">
+	            <div class="col-md-7">
+	            	<div class="panel panel-default">
+					  <div class="panel-heading">Petunjuk Pembayaran</div>
+					  <div class="panel-body">
+					    Lakukan pembayaran melalui ATM/transfer dengan detail sebagai berikut:<br><br>
+					    <div class="panel-heading" style="background-color: #fafafa;border:1px solid #ddd">
+					    	Harga<h4>Rp 100.000</h4><div class="alert alert-info" role="alert">Transfer tepat hingga 3 digit terakhir agar tidak menghambat proses verifikasi</div>
+					    	<hr>
+					    	Rekening Tujuan
+					    	<table class="table table-bordered" style="background-color: white">
+					    		<tr>
+					    			<td class="col-md-6" style="text-align: center">
+					    				BNI<br>731 025 2527 
+					    			</td>
+					    			<td class="col-md-6" style="text-align: center">
+					    				BRI<br>731 025 2527
+					    			</td>
+					    		</tr>
+					    		<tr>
+					    			<td class="col-md-6" style="text-align: center">
+					    				BCA<br>731 025 2527
+					    			</td>
+					    			<td class="col-md-6" style="text-align: center">
+					    				Mandiri<br>731 025 2527
+					    			</td>
+					    		</tr>
+					    	</table>
+					    </div><br>
+					    Unique akan melakukan verifikasi otomatis paling lama 30 menit setelah kamu melakukan pembayaran.
+					  </div>
+					</div>
+				</div>
 
-	            <div class="col-md-8">
+				<div class="col-md-5">
+					<div class="panel panel-default">
+					  <div class="panel-body" style="background-color: #fafafa">
+					    Nomor Transaksi<br>987654
+					    <hr>
+					    Status Tagihan<br><span class="label label-danger">Menunggu Pembayaran</span><br>Paling lambat Senin, 22 Mei 2017, 01:31 WIB
+					    <hr>
+					    Total Pembayaran<br>Rp 100.000
+					    <hr>
+					    Alamat Pengiriman<br>blablablablablablablabla
+					    <hr>
+					    <div class="alert alert-danger" role="alert">Silahkan Upload Bukti Pembayaran Anda</div>
+					    <input type="file" name="buktitransfer"><br>
+					    <button class="btn btn-danger">Upload</button>
+					  </div>
+					</div>
+				</div>
+
+	          </div>
+
+	          <div class="row">
+	          	<div class="col-md-7">
+					<div class="panel panel-default">
+					  <div class="panel-heading">Detail Pembelian</div>
+					  <div class="panel-body"><br>
+					    <table class="table table-bordered" style="background-color: #fafafa;border-radius: 5px;border:1px solid #ddd">
+						  <tr>
+						  	<td class="col-md-6">
+						  		<span>Nomor Transaksi</span><br>987654
+						  	</td>
+						  	<td class="col-md-6">
+						  		Nama Pelapak<br>Pepi Bajingan
+						  	</td>
+						  </tr>
+						</table>
+						<table class="table table-bordered" style="background-color: #fafafa;margin-top: -20px">
+						  <tr>
+						  	<td>Barang</td>
+						  </tr>
+						</table>
+						<table class="table table-bordered" style="background-color: #fafafa;margin-top: -20px">
+						  <tr>
+						  	<td>Status Pembelian<br>Belum dibayar</td>
+						  </tr>
+						</table>
+						<table class="table table-bordered" style="background-color: #fafafa;margin-top: -20px">
+						  <tr>
+						  	<td class="col-md-6">
+						  		Jasa Pengirimian<br>JNE REG
+						  	</td>
+						  	<td class="col-md-6">
+						  		Nomor Resi<br>-
+						  	</td>
+						  </tr>
+						</table>
+						<table class="table table-bordered" style="background-color: #fafafa;margin-top: -20px">
+						  <tr>
+						  	<td>Barang</td>
+						  </tr>
+						</table>
+					  </div>
+					</div>
 				</div>
 	          </div>
-	          <div class="tab-pane fade" id="tab_default_5">
 
-	            <div class="col-md-8">
-
-	             </div>
-	          </div>
 	        </div>
 	        </div>
 	      </div>

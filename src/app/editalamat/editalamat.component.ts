@@ -1,13 +1,13 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { Router, ActivatedRoute} from '@angular/router';
 import { ToastrService } from 'toastr-ng2';
 import { DataService } from '../data/data.service';
 
 @Component({
-  selector: 'app-editemail',
-  templateUrl: './editemail.component.html',
-  styleUrls: ['./editemail.component.css'],
+  selector: 'app-editalamat',
+  templateUrl: './editalamat.component.html',
+  styleUrls: ['./editalamat.component.css'],
   animations: [
 
    // Define animations here.
@@ -15,14 +15,12 @@ import { DataService } from '../data/data.service';
   ],
   providers:[DataService]
 })
-export class EditemailComponent implements OnInit {
+export class EditalamatComponent implements OnInit {
 
 	paramsRoutes;
   	public sub: any;
 
-  	private username;
-  	private email;
-  	private notelp;
+  	private alamat;
 
 	constructor(private http: Http, private route: ActivatedRoute, private toastr: ToastrService, private router: Router,private dataService: DataService) { }
 
@@ -35,40 +33,32 @@ export class EditemailComponent implements OnInit {
 	  	this.http.get(this.dataService.urlGetUser + "/" + this.paramsRoutes, {withCredentials: true})
 	    .subscribe(res =>{
 	    	let data = JSON.parse(res['_body']);
-	    	this.username = data['user'].username;
-	    	this.email = data['user'].email;
-	    	this.notelp = data['user'].notelp; 
+	    	this.alamat = data['user'].alamat;
 	    });
 	}
 
 	submit(value){
 		let formData = new FormData();
 
-	    formData.append("username", this.username);
-	    formData.append("email", this.email);
-	    formData.append("notelp", this.notelp);
+	    formData.append("alamat", this.alamat);
 
-		this.http.put(this.dataService.urlEditProfile + "/mail", formData, {withCredentials: true})
+		this.http.put(this.dataService.urlEditProfile + "/alamat", formData, {withCredentials: true})
 		.subscribe(res => {
 			if(res['status'] == 204){
 				this.showSuccess(value);
-			} else if(res['_body'] == "Gagal mengupdate mail user"){
+			} else if(res['_body'] == "Gagal mengupdate alamat user"){
 				this.showFailed();
 			} 
 		});
 	}
 
 	showSuccess(routes) {
-    	this.toastr.success("Edit Akun Berhasil", 'Success!');
+    	this.toastr.success("Edit Alamat Berhasil", 'Success!');
     	this.router.navigate(['/profil', routes]);
 	}	  
 
 	showFailed(){
-		this.toastr.error("Edit Akun Gagal", 'Error!');
-	}
-
-	back(routes){
-		this.router.navigate(['/profil', routes]);
+		this.toastr.error("Edit Alamat Gagal", 'Error!');
 	}
 
 }
