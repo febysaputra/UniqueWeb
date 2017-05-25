@@ -10,26 +10,26 @@ Licensed under MIT
     <div class='carousel-outer' >
         <!-- me art lab slider -->
         <div class='carousel-inner' style="height:400px ;max-width: 350px" >
-            <div class='item active'>
+            <div *ngIf="urlImage[0]" class='item active'>
                 <img [src]='urlImage[0]' alt=''id="zoom_05"  data-zoom-image="http://images.asos-media.com/inv/media/8/2/3/3/5313328/print/image1xxl.jpg"/>
             </div>
-            <div class='item'  id="zoom_05">
+            <div *ngIf="urlImage[1]" class='item'  id="zoom_05">
                 <img [src]='urlImage[1]' alt='' data-zoom-image="http://images.asos-media.com/inv/media/8/2/3/3/5313328/image2xxl.jpg" />
             </div>
-            <div class='item'>
+            <div *ngIf="urlImage[2]" class='item'>
                 <img [src]='urlImage[2]' alt='' data-zoom-image="http://images.asos-media.com/inv/media/8/2/3/3/5313328/image3xxl.jpg" />
             </div>
                 
-            <div class='item'>
+            <div *ngIf="urlImage[3]" class='item'>
                 <img [src]='urlImage[3]' alt='' data-zoom-image="http://images.asos-media.com/inv/media/3/6/7/0/4850763/multi/image1xxl.jpg" id="zoom_05"/>
             </div>
-            <div class='item'>
+            <div *ngIf="urlImage[4]" class='item'>
                 <img [src]='urlImage[4]' alt='' data-zoom-image="http://images.asos-media.com/inv/media/5/2/1/3/4603125/gold/image1xxl.jpg" id="zoom_05"/>
             </div>
-            <div class='item'>
+            <div *ngIf="urlImage[5]" class='item'>
                 <img [src]='urlImage[5]' alt='' data-zoom-image="http://images.asos-media.com/inv/media/5/3/6/8/4948635/mink/image1xxl.jpg" id="zoom_05"/>
             </div>
-            <div class='item'>
+            <div *ngIf="urlImage[6]" class='item'>
                 <img [src]='urlImage[6]' alt='' data-zoom-image="../assets/reja.png" id="zoom_05"  style="margin:auto"/>
             </div>
 
@@ -49,13 +49,13 @@ Licensed under MIT
     
     <!-- thumb -->
     <ol class='carousel-indicators mCustomScrollbar meartlab'>
-        <li data-target='#carousel-custom' data-slide-to='0' class='active'><img [src]='urlImage[0]' alt='' /></li>
-        <li data-target='#carousel-custom' data-slide-to='1'><img [src]='urlImage[1]' alt='' /></li>
-        <li data-target='#carousel-custom' data-slide-to='2'><img [src]='urlImage[2]' alt='' /></li>
-        <li data-target='#carousel-custom' data-slide-to='3'><img [src]='urlImage[3]' alt='' /></li>
-        <li data-target='#carousel-custom' data-slide-to='4'><img [src]='urlImage[4]' alt='' /></li>
-        <li data-target='#carousel-custom' data-slide-to='5'><img [src]='urlImage[5]' alt='' /></li>
-        <li data-target='#carousel-custom' data-slide-to='6'><img [src]='urlImage[6]' alt='' /></li>
+        <li *ngIf="urlImage[0]" data-target='#carousel-custom' data-slide-to='0' class='active'><img [src]='urlImage[0]' alt='' /></li>
+        <li *ngIf="urlImage[1]" data-target='#carousel-custom' data-slide-to='1'><img [src]='urlImage[1]' alt='' /></li>
+        <li *ngIf="urlImage[2]" data-target='#carousel-custom' data-slide-to='2'><img [src]='urlImage[2]' alt='' /></li>
+        <li *ngIf="urlImage[3]" data-target='#carousel-custom' data-slide-to='3'><img [src]='urlImage[3]' alt='' /></li>
+        <li *ngIf="urlImage[4]" data-target='#carousel-custom' data-slide-to='4'><img [src]='urlImage[4]' alt='' /></li>
+        <li *ngIf="urlImage[5]" data-target='#carousel-custom' data-slide-to='5'><img [src]='urlImage[5]' alt='' /></li>
+        <li *ngIf="urlImage[6]" data-target='#carousel-custom' data-slide-to='6'><img [src]='urlImage[6]' alt='' /></li>
 
     </ol>
 </div>
