@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
       this.http.post(this.dataService.urlLogin, creds, {headers: headers})
       .subscribe(res => {
         let data = JSON.parse(res['_body']) 
-        console.log(data);
         if(res['status'] == 201){
           this.showSuccess();
           localStorage.setItem('token', data['value']);
@@ -51,7 +50,6 @@ export class LoginComponent implements OnInit {
         this.toastr.success("Login Berhasil", 'Success!');
         this.username = "";
         this.password = "";
-        window.location.reload();
         this.router.navigate(['/home']);
     }    
 
