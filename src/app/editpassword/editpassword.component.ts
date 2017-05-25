@@ -37,7 +37,6 @@ export class EditpasswordComponent implements OnInit {
       .subscribe(res =>{
         let data = JSON.parse(res['_body']);
         this.username = data['user'].username;
-        this.oldpass = data['user'].password;
       });
 	}
 

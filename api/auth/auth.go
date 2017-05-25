@@ -19,6 +19,7 @@ const MyKey Key = 0
 
 
 type Claims struct {
+	IdUser 			string 	`json:"iduser"`
 	Username        string  `json:"username"`
   Class			      string	`json:"class"`
 	jwt.StandardClaims
@@ -33,11 +34,12 @@ type Cookie struct
 
 }
 
-func SetToken(w http.ResponseWriter, r *http.Request,username string,class string) {
+func SetToken(w http.ResponseWriter, r *http.Request,iduser string ,username string,class string) {
   expireToken := time.Now().Add(time.Hour * 5).Unix()
   expireCookie := time.Now().Add(time.Hour * 5)
 
   claims := Claims{
+  	iduser,
     username,
     class,
     jwt.StandardClaims{

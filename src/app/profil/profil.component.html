@@ -68,9 +68,11 @@
 	          <div class="tab-pane fade" id="tab_default_3">
 	          <div *ngFor="let item of listlapak">
 	            <div class="col-md-12">
-	            	<h3> Informasi Lapak<a routerLink="" (click)="routesEditLapak(id)" class="btn btn-danger pull-right" style="margin-right: 20px">Edit</a></h3>
+	            	<h3> Informasi Lapak<a routerLink="" (click)="routesEditLapak(item.idlapak)" class="btn btn-danger pull-right" style="margin-right: 20px">Edit</a></h3>
 	            	<hr>
 	            	<p>Foto Header Lapak</p>
+	               <hr>
+	               <p>Nama Barang {{item.namabarang}}</p>
 	               <hr>
 	               <p>Catatan Pelapak {{item.spesifikasibarang}}</p>
 	               <hr>

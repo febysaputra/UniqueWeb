@@ -127,7 +127,7 @@
                         <div class="form-group">
                             <label for="namabarang" class="col-sm-2 control-label">Deskripsi</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" id="editor" (change)="TextareaValueChange($event)"></textarea>
+                                <textarea class="form-control" id="editor" name="spesifikasibarang" [(ngModel)]="spesifikasibarang"></textarea>
                             </div>
                           </div>
 
@@ -147,7 +147,7 @@
                                 </div>
                          </div> 
                                 
-                        <button type="submit" class="btn btn-danger pull-right" [disabled]="!bukalelangnamabarang.valid || !bukalelangkategori.valid || !bukalelangkondisi.valid || !bukalelangberat.valid || !bukalelanghargasementara.valid || !bukalelanghargalimit.valid || !bukalelangbataspenawaran.valid || !deskripsi"
+                        <button type="submit" class="btn btn-danger pull-right" [disabled]="!bukalelangnamabarang.valid || !bukalelangkategori.valid || !bukalelangkondisi.valid || !bukalelangberat.valid || !bukalelanghargasementara.valid || !bukalelanghargalimit.valid || !bukalelangbataspenawaran.valid || !spesifikasibarang"
                          style="margin-left: 10px">Simpan</button>
                         <button type="button" class="btn btn-default pull-right">Batal</button>   
 

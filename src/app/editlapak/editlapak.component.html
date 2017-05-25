@@ -34,7 +34,7 @@
 
 	               <h3> Edit Informasi Umum </h3> 
 	               <hr>
-					<form class="form-horizontal" enctype="multipart/form-data">
+					<form class="form-horizontal" enctype="multipart/form-data" (ngSubmit)="submit()" #editlapakForm="ngForm">
                           <div class="form-group">
                             <label for="namabarang" class="col-sm-2 control-label">Gambar Header</label>
                             <div class="col-sm-10">
@@ -44,31 +44,51 @@
                           <hr>
 
                           <div class="form-group">
-                            <label for="namabarang" class="col-sm-2 control-label">Deskripsi Lapak</label>
+                            <label for="namabarang" class="col-sm-2 control-label">Nama Barang</label>
                             <div class="col-sm-10">
-                              <form>
-							    <textarea class="ckeditor" id="editor"></textarea>
-							  </form>
-							  <script type="text/javascript">
-							  	(function ($) {
-								  $(document).ready(function () {
-								    CKEDITOR.replace($('.ckeditor').get(0), {
-								    });
-								  });
-								})(jQuery);
-							  </script>
+                              <input type="text" class="form-control" name="namabarang" [(ngModel)]="namabarang" style="width: 500px">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="berat" class="col-sm-2 control-label">Berat</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="berat" [(ngModel)]="berat" style="width: 500px">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="hargasementara" class="col-sm-2 control-label">Harga Sementara</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="hargasementara" [(ngModel)]="hargasementara" style="width: 500px">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="hargalimit" class="col-sm-2 control-label">Harga Limit</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="hargalimit" [(ngModel)]="hargalimit" style="width: 500px">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="bataspenawaran" class="col-sm-2 control-label">Batas Penawaran</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" name="bataspenawaran" [(ngModel)]="bataspenawaran" style="width: 500px">
+                            </div>
+                          </div>
+
+                          <div class="form-group">
+                            <label for="catatanlapak" class="col-sm-2 control-label">Catatan Lapak</label>
+                            <div class="col-sm-10">
+                              <textarea class="form-control" id="editor" name="spesifikasibarang" [(ngModel)]="spesifikasibarang"></textarea>
                             </div>
                           </div>
                           
-                          <div class="form-group">
-                            <label for="namabarang" class="col-sm-2 control-label">Catatan Pelapak</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="namabarang" placeholder="Nama" style="width: 500px">
-                            </div>
-                          </div>
+                          
                         <hr>
-                        <button type="button" class="btn btn-danger pull-right" style="margin-left: 10px">Simpan</button>
-                        <button type="button" class="btn btn-default pull-right">Kembali</button>
+                        <button type="submit" class="btn btn-danger pull-right" style="margin-left: 10px">Simpan</button>
+                        <a routerLink="" (click)="back(username)" class="btn btn-default pull-right">Kembali</a>
                         
                      </form>
 	           </div>

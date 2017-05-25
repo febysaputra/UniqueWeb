@@ -26,7 +26,7 @@ export class BukalelangComponent implements OnInit {
 	private hargasementara;
 	private hargalimit;
 	private bataspenawaran;
-	private deskripsi;
+	private spesifikasibarang;
 
 	@Input() multiple: boolean = false;
 	@ViewChild('file') listfile : DropzoneComponent;
@@ -62,11 +62,11 @@ export class BukalelangComponent implements OnInit {
 	            formData.append("hargasementara", this.hargasementara);
 	            formData.append("hargalimit", this.hargalimit);
 	            formData.append("bataspenawaran", this.bataspenawaran);
-	            formData.append("spesifikasibarang", this.deskripsi);
+	            formData.append("spesifikasibarang", this.spesifikasibarang);
 	            this.http.post(this.dataService.urlNewLapak, formData, {withCredentials: true})
 	                .subscribe(res =>{
 	                	if(res['status'] == 201){
-	                    	this.showSuccess();
+	                    	this.showSuccess(res['_body']);
 	                	} else if(res['_body'] == "belum login") {
 	                		this.showFailed();
 	                	} else {
@@ -78,9 +78,9 @@ export class BukalelangComponent implements OnInit {
 	        }
   	}
 
-  	showSuccess() {
+  	showSuccess(routes) {
     	this.toastr.success("Buat Lelang Berhasil", 'Success!');
-    	this.router.navigate(['/home']);
+    	this.router.navigate(['/bid', routes]);
 	}	  
 
 	showFailed(){
@@ -94,9 +94,5 @@ export class BukalelangComponent implements OnInit {
 	showError(){
 		this.toastr.error("Foto Harus dilengkapi, minimal berikan satu foto", 'Error!');
 	}
-
-	TextareaValueChange(ev) {
-      	this.deskripsi = ev.target.value;
-    }
 
 }

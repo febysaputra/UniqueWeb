@@ -8,6 +8,7 @@ import (
     "crypto/sha256"
     "time"
     "strings"
+    "strconv"
 
     "goji.io"
     "goji.io/pat"
@@ -21,6 +22,7 @@ import (
 )
 
 type User struct {
+    IdUser        string    `json:"iduser"`
     Username      string    `json:"username"`
     Password      string    `json:"password"`
     Email         string    `json:"email"`
@@ -121,6 +123,19 @@ func register(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
 
         c := session.DB("unique").C("users")
 
+        //untuk auto increment
+        var lastUser User
+        var lastId  int
+
+        err = c.Find(nil).Sort("-$natural").Limit(1).One(&lastUser)
+        if err != nil {
+            lastId = 0
+        } else {
+            lastId,err = strconv.Atoi(lastUser.IdUser)
+        }
+        currentId := lastId + 1
+        user.IdUser = strconv.Itoa(currentId)
+
         passEncrypt := sha256.Sum256([]byte(user.Password))
         user.Password = fmt.Sprintf("%x", passEncrypt)
 
@@ -182,7 +197,7 @@ func getUser(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
         return
       }
     }
-    respBody, err := json.MarshalIndent(DataSend{User:User{Username:user.Username,Nama:user.Nama,Alamat:user.Alamat,NoTelp:user.NoTelp,JenisKelamin:user.JenisKelamin,TiketLelang:user.TiketLelang,FotoProfile:user.FotoProfile},
+    respBody, err := json.MarshalIndent(DataSend{User:User{IdUser:user.IdUser,Username:user.Username,Nama:user.Nama,Alamat:user.Alamat,NoTelp:user.NoTelp,JenisKelamin:user.JenisKelamin,TiketLelang:user.TiketLelang,FotoProfile:user.FotoProfile},
                       Lelang:lelang}, "", "  ")
     if err != nil {
       log.Fatal(err)
@@ -217,7 +232,7 @@ func login(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
             log.Println("Failed find user: ", err)
             return
         } else{
-            auth.SetToken(w,r,user.Username,user.Class)
+            auth.SetToken(w,r,user.IdUser,user.Username,user.Class)
             return
         }
     }
@@ -250,7 +265,9 @@ func updateUser(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
         tipe := pat.Param(r, "type")
 
         var user User
+
         username := claims.Username
+        iduser := claims.IdUser
 
         var varmap map[string]interface{}
         in := []byte(`{}`)
@@ -261,7 +278,7 @@ func updateUser(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
         if tipe == "umum"{ 
 
           user.Class = "Customer"
-          msg := upload.UploadHandler(r,username,"profileuser")
+          msg := upload.UploadHandler(r,iduser,"profileuser")
           user.Username = r.FormValue("username")
           user.Nama = r.FormValue("nama")
           user.JenisKelamin = r.FormValue("jeniskelamin")
@@ -292,7 +309,7 @@ func updateUser(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
             if username != user.Username && username != "" {
               deleteCookie := http.Cookie{Name: "Auth", Value: "none", Expires: time.Now()}
               http.SetCookie(w, &deleteCookie)
-              auth.SetToken(w,r,user.Username,user.Class)
+              auth.SetToken(w,r,user.IdUser,user.Username,user.Class)
               c = session.DB("unique").C("lapak")
 
               c.Update(bson.M{"usernamepenjual": username}, bson.M{"$set": bson.M{"usernamepenjual": user.Username}})
@@ -338,14 +355,19 @@ func updateUser(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
           passEncrypt := sha256.Sum256([]byte(newpass))
           user.Password = fmt.Sprintf("%x", passEncrypt)
 
+          passEncrypt = sha256.Sum256([]byte(oldpass))
+          oldpass = fmt.Sprintf("%x", passEncrypt)
+
           if userpassword.Password == oldpass{
             err = c.Update(bson.M{"username": username}, bson.M{"$set": bson.M{"password": user.Password}})
             if err != nil{
               jsonhandler.ErrorWithJSON(w, "Gagal mengupdate password user", http.StatusOK)
               return
             }
-          }
-          w.WriteHeader(http.StatusNoContent)
+            w.WriteHeader(http.StatusNoContent)
+            } else {
+              jsonhandler.ErrorWithJSON(w, "Gagal mengupdate password user", http.StatusOK)
+            }
         }
 
         if tipe == "alamat" {

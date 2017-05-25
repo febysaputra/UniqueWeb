@@ -21,6 +21,7 @@ export class EditgeneralComponent implements OnInit {
 	paramsRoutes;
   	public sub: any;
 
+  	private iduser;
 	private username;
 	private nama;
 	private jeniskelamin;
@@ -40,10 +41,11 @@ export class EditgeneralComponent implements OnInit {
 	  	this.http.get(this.dataService.urlGetUser + "/" + this.paramsRoutes, {withCredentials: true})
 	    .subscribe(res =>{
 	    	let data = JSON.parse(res['_body']);
+	    	this.iduser = data['user'].iduser;
 	    	this.username = data['user'].username;
 	    	this.nama = data['user'].nama; 
 	    	this.jeniskelamin = data['user'].jeniskelamin;
-	    	this.urlImage = this.urlImage + this.username + "/" + data['user'].fotoprofile;
+	    	this.urlImage = this.urlImage + this.iduser + "/" + data['user'].fotoprofile;
 	    });
 	
 	}

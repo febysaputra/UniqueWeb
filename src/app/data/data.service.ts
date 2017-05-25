@@ -22,6 +22,8 @@ export class DataService{
 	public urlNewLapak = 'http://localhost:8080/mylapak/newlapak';
 	public urlBid = 'http://localhost:8080/room/recentbid';
 	public urlRoomBid = 'ws://localhost:8080/lapak/room';
+	public urlGetLapak = 'http://localhost:8080/lapak';
+	public urlEditLapak = 'http://localhost:8080/mylapak/editlapak';
 
 	public loginState(cek){
 			this.loggedIn = cek;

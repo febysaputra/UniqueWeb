@@ -23,6 +23,7 @@ export class ProfilComponent implements OnInit {
   	private sub: any;
 
   	//user
+  	private iduser;
   	private username;
   	private nama;
   	private jeniskelamin;
@@ -46,13 +47,14 @@ export class ProfilComponent implements OnInit {
 	  	this.http.get(this.dataService.urlGetUser + "/" + this.paramsRoutes, {withCredentials: true})
 	    .subscribe(res =>{
 	    	let data = JSON.parse(res['_body']);
+	    	this.iduser = data['user'].iduser;
 	    	this.username = data['user'].username;
 	    	this.nama = data['user'].nama; 
 	    	this.jeniskelamin = data['user'].jeniskelamin;
 	    	this.email = data['user'].email;
 	    	this.notelp = data['user'].notelp;
 	    	this.alamat = data['user'].alamat;
-	    	this.urlImage = this.urlImage + this.username + "/" + data['user'].fotoprofile;
+	    	this.urlImage = this.urlImage + this.iduser + "/" + data['user'].fotoprofile;
 
 	    	this.listlapak = data['lelang'];
 	    });
@@ -74,5 +76,10 @@ export class ProfilComponent implements OnInit {
 	//Alamat
 	routesEditAlamat(routes){
 		this.router.navigate(['/editalamat', routes]);
+	}
+
+	//lapak
+	routesEditLapak(routes){
+		this.router.navigate(['/editlapak', routes]);
 	}
 }

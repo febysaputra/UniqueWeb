@@ -6,6 +6,7 @@ import (
     "time"
     "net/http"
     "strconv"
+    "fmt"
 
     "goji.io"
     "goji.io/pat"
@@ -155,6 +156,7 @@ func addLapak(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
         w.Header().Set("Content-Type", "application/json")
         w.Header().Set("Location", r.URL.Path+"/"+lapak.IdLapak)
         w.WriteHeader(http.StatusCreated)
+        fmt.Fprintf(w, lapak.IdLapak)
     }
 }
 
@@ -177,7 +179,7 @@ func getLapak(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
 
         respBody, err := json.MarshalIndent(Lapak{IdLapak:lapak.IdLapak,UsernamePenjual:lapak.UsernamePenjual,NamaBarang:lapak.NamaBarang,Tanggal:lapak.Tanggal,SpesifikasiBarang:lapak.SpesifikasiBarang,
                                                   Foto:lapak.Foto,StatusLapak:lapak.StatusLapak,Kategori:lapak.Kategori,
-                                                  Sertifikat:lapak.Sertifikat,Kondisi:lapak.Kondisi,Berat:lapak.Berat,Waktu:lapak.Waktu,HargaSementara:lapak.HargaSementara,BatasPenawaran:lapak.BatasPenawaran,
+                                                  Sertifikat:lapak.Sertifikat,Kondisi:lapak.Kondisi,Berat:lapak.Berat,Waktu:lapak.Waktu,HargaSementara:lapak.HargaSementara,HargaLimit:lapak.HargaLimit,BatasPenawaran:lapak.BatasPenawaran,
                                                   UsernamePemenang:lapak.UsernamePemenang}, "", "  ")
         if err != nil {
             log.Fatal(err)
@@ -220,8 +222,8 @@ func updateLapak(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
           }
           lapak.NamaBarang = r.FormValue("namabarang")
           if lapak.NamaBarang != "" { varmap["namabarang"] = lapak.NamaBarang }
-          lapak.SpesifikasiBarang = r.FormValue("spefikasibarang")
-          if lapak.SpesifikasiBarang != "" { varmap["spefikasibarang"] = lapak.SpesifikasiBarang }
+          lapak.SpesifikasiBarang = r.FormValue("spesifikasibarang")
+          if lapak.SpesifikasiBarang != "" { varmap["spesifikasibarang"] = lapak.SpesifikasiBarang }
           lapak.Kategori = r.FormValue("kategori")
           if lapak.Kategori != ""{ varmap["kategori"] = lapak.Kategori }
           lapak.Sertifikat = r.FormValue("sertifikat")
@@ -239,6 +241,7 @@ func updateLapak(s *mgo.Session) func(w http.ResponseWriter, r *http.Request) {
               default:
                   jsonhandler.ErrorWithJSON(w, "Database error", http.StatusInternalServerError)
                   log.Println("Failed update lapak: ", err)
+                  jsonhandler.ErrorWithJSON(w, "Gagal mengupdate lapak", http.StatusOK)
                   return
               case mgo.ErrNotFound:
                   jsonhandler.ErrorWithJSON(w, "lapak not found", http.StatusNotFound)

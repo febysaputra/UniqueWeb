@@ -70,7 +70,7 @@ export class BarangComponent implements OnInit {
 	    	this.http.get(this.dataService.urlGetUser + "/" + this.usernamepenjual)
 	    	.subscribe(res =>{
 	    		let data = JSON.parse(res['_body']);
-	    		this.urlFoto = this.urlFoto + this.usernamepenjual + "/" + data['user'].fotoprofile;
+	    		this.urlFoto = this.urlFoto + data['user'].iduser + "/" + data['user'].fotoprofile;
 
 	    	});
 	    });

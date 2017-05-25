@@ -112,7 +112,7 @@ import { DropzoneComponent } from './dropzone/dropzone.component';
         component : EditalamatComponent
       },
       {
-        path:'editlapak/:id',
+        path:'editlapak/:idlapak',
         component : EditlapakComponent
       },
 
