@@ -8,6 +8,7 @@ import { ToastrModule } from 'toastr-ng2';
 import { CommonModule } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -27,7 +28,6 @@ import { EditalamatComponent } from './editalamat/editalamat.component';
 
 import { DataService } from './data/data.service';
 import { DropzoneComponent } from './dropzone/dropzone.component';
-
 
 
 @NgModule({

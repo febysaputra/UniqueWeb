@@ -6,7 +6,7 @@ import { Subject }    from 'rxjs/Subject';
 
 declare let require: any;
 
-let Dropzone = require('../../../node_modules/dropzone/dist/dropzone-amd-module');
+let Dropzone = require('../../../node_modules/dropzone/dist/dropzone');
 
 @Component({
   selector: 'app-dropzone',
@@ -44,61 +44,34 @@ export class DropzoneComponent implements AfterViewInit, OnDestroy {
         this.filesUploading.emit(files);
       },
       paramName: "foto",
+      method: "",
       autoProcessQueue: false,
       uploadMultiple: true,
       parallelUploads: 20,
-      maxFilesize: 2, //max ukuran foto 1 MB
-      maxThumbnailFilesize: 2,
-      hiddenInputContainer: '#dropzone-drop-area',
-      dictDefaultMessage: '',
-      maxFiles: 5,
-      thumbnailWidth: 100,
-      thumbnailHeight: 100,
-      acceptedFiles: 'image/*',
-      clickable: '#dropzone-drop-area',
-      previewsContainer: '#dropzone-drop-area',
-      previewTemplate: `
-<div class="dz-preview dz-file-preview">
-  <div class="dz-image">
-    <img data-dz-thumbnail />
-  </div>
-   <div class="dz-progress">
-    <span class="dz-upload" data-dz-uploadprogress></span>
-  </div>
-  <div class="dz-error-message">
-    <span data-dz-errormessage></span>
-  </div>
-</div>
-`
     });
     this.dropzone.autoDiscover = false;
 
     this.dropzone.on('addedfile', (file) => {
     	 if(this.dropzone.files.length > 5){
-        this.showNotifikasi();
+         this.dropzone.removeFile(file);
+         this.showNotifikasi();
     	 }
     	 if(file.size > 2097152){
-    	 	this.dropzone.removeFile(file);
+    	 	 this.dropzone.removeFile(file);
          this.showError();
     	 }
+
+       if(!file.type.match(/image*/)){
+         this.showErrorImage();
+         this.dropzone.removeFile(file); 
+       }
+       file.previewElement.classList.add("dz-success");
 	   	file.previewElement.addEventListener('click', () => {
         		this.dropzone.removeFile(file);
         }); 
     });
 
-     this.dropzone.on('error', (file) => {
-       this.dropzone.removeFile(file); 
-    });
-
-
-    this.dropzone.on('maxfilesreached', (files) => {
-      //this.dropzone.removeAllFiles();
-    });
-    // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
-    // of the sending event because uploadMultiple is set to true.
-    this.dropzone.on('sendingmultiple', () => {
-      console.log('sending!!!!!!!');
-    });
+    
   }
 
   showNotifikasi(){
@@ -107,6 +80,10 @@ export class DropzoneComponent implements AfterViewInit, OnDestroy {
 
   showError(){
     this.toastr.error("Maksimum file 2 MB", 'Error!');
+  }
+
+  showErrorImage(){
+    this.toastr.error("Anda hanya bisa memasukkan gambar", 'Error!');
   }
 
   ngOnDestroy() {

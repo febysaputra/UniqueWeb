@@ -29,7 +29,7 @@ export class BukalelangComponent implements OnInit {
 	private spesifikasibarang;
 
 	@Input() multiple: boolean = false;
-	@ViewChild('file') listfile : DropzoneComponent;
+	@ViewChild('file') listfile: DropzoneComponent;
 	@ViewChild('fotosertifikat') inputElSertifikat: ElementRef;
 	
 
