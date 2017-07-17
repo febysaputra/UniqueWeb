@@ -1,0 +1,53 @@
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\E - Procurement.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\E - Procurement.pdb
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\Antlr3.Runtime.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.AspNet.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.Core.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.OAuth.Consumer.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.OAuth.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.OpenId.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\EntityFramework.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\Microsoft.Web.Infrastructure.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\Microsoft.Web.WebPages.OAuth.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\Newtonsoft.Json.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Net.Http.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Net.Http.Formatting.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Net.Http.WebRequest.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Helpers.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Http.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Http.WebHost.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Mvc.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Optimization.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Razor.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.WebPages.Deployment.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.WebPages.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.WebPages.Razor.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\WebGrease.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\WebMatrix.Data.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\WebMatrix.WebData.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\EntityFramework.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\Newtonsoft.Json.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Net.Http.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Net.Http.Formatting.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Net.Http.WebRequest.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Helpers.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Http.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Http.WebHost.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Mvc.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.Razor.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.WebPages.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.WebPages.Deployment.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\System.Web.WebPages.Razor.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\WebMatrix.Data.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\Microsoft.Web.WebPages.OAuth.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\WebMatrix.WebData.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.AspNet.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.Core.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.OAuth.Consumer.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.OAuth.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.OpenId.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\obj\Debug\E - Procurement.csprojResolveAssemblyReference.cache
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\obj\Debug\E - Procurement.dll
+c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\obj\Debug\E - Procurement.pdb
