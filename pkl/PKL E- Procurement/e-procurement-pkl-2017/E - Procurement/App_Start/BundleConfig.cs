@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace E___Procurement
+namespace EProcurement
 {
     public class BundleConfig
     {

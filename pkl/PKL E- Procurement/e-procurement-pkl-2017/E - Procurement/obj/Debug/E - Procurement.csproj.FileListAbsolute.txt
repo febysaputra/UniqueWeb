@@ -51,3 +51,56 @@ c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Pr
 c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\obj\Debug\E - Procurement.csprojResolveAssemblyReference.cache
 c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\obj\Debug\E - Procurement.dll
 c:\users\feby tri s\documents\visual studio 2012\Projects\E - Procurement\E - Procurement\obj\Debug\E - Procurement.pdb
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\E - Procurement.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\E - Procurement.pdb
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\Antlr3.Runtime.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.AspNet.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.Core.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.OAuth.Consumer.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.OAuth.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.OpenId.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.OpenId.RelyingParty.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\EntityFramework.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\Microsoft.Web.Infrastructure.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\Microsoft.Web.WebPages.OAuth.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\Newtonsoft.Json.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Net.Http.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Net.Http.Formatting.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Net.Http.WebRequest.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Helpers.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Http.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Http.WebHost.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Mvc.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Optimization.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Razor.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.WebPages.Deployment.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.WebPages.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.WebPages.Razor.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\WebGrease.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\WebMatrix.Data.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\WebMatrix.WebData.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\EntityFramework.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\Newtonsoft.Json.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Net.Http.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Net.Http.Formatting.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Net.Http.WebRequest.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Helpers.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Http.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Http.WebHost.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Mvc.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.Razor.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.WebPages.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.WebPages.Deployment.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\System.Web.WebPages.Razor.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\WebMatrix.Data.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\Microsoft.Web.WebPages.OAuth.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\WebMatrix.WebData.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.AspNet.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.Core.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.OAuth.Consumer.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.OAuth.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.OpenId.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\bin\DotNetOpenAuth.OpenId.RelyingParty.xml
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\obj\Debug\E - Procurement.csprojResolveAssemblyReference.cache
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\obj\Debug\E - Procurement.dll
+E:\pkl\PKL E- Procurement\e-procurement-pkl-2017\E - Procurement\obj\Debug\E - Procurement.pdb

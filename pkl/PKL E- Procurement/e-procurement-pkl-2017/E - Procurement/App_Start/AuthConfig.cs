@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.Web.WebPages.OAuth;
-using E___Procurement.Models;
+using EProcurement.Models;
 
-namespace E___Procurement
+namespace EProcurement
 {
     public static class AuthConfig
     {

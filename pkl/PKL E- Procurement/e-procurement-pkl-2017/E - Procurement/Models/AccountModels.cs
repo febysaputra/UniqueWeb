@@ -7,7 +7,7 @@ using System.Globalization;
 using System.Web.Mvc;
 using System.Web.Security;
 
-namespace E___Procurement.Models
+namespace EProcurement.Models
 {
     public class UsersContext : DbContext
     {

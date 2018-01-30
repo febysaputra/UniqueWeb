@@ -8,10 +8,10 @@ using System.Web.Security;
 using DotNetOpenAuth.AspNet;
 using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
-using E___Procurement.Filters;
-using E___Procurement.Models;
+using EProcurement.Filters;
+using EProcurement.Models;
 
-namespace E___Procurement.Controllers
+namespace EProcurement.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]

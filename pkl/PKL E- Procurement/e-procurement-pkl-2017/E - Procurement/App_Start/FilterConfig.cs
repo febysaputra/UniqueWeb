@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace E___Procurement
+namespace EProcurement
 {
     public class FilterConfig
     {
